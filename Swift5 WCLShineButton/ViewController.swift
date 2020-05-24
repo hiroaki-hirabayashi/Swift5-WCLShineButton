@@ -7,14 +7,43 @@
 //
 
 import UIKit
+import WCLShineButton
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var button: WCLShineButton!
+    
+    var flag = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        var param = WCLShineParams()
+        param.enableFlashing = true
+        param.animDuration = 5
+        button.params = param
+        button.image = .star
+        
+        
     }
-
-
+    
+    @IBAction func tap(_ sender: Any) {
+        
+        if flag == false{
+            
+            view.backgroundColor = .black
+            flag = true
+        
+        }else{
+            
+            view.backgroundColor = .systemBlue
+            flag = false
+            
+        }
+        
+    }
+    
+    
 }
 
